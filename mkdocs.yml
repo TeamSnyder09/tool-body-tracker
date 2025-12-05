@@ -1,0 +1,27 @@
+site_name: Tool Body Tracker
+site_description: A program to track tool body time installed on machines
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - toc.integrate
+    - content.tabs.link
+  palette:
+    - scheme: default
+      primary: blue
+      accent: orange
+
+nav:
+  - Home: index.md
+  - Installation: installation.md
+  - Usage: usage.md
+  - API Reference: api.md
+  - Contributing: contributing.md
+
+markdown_extensions:
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.highlight
+  - toc:
+      permalink: true
