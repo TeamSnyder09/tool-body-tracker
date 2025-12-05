@@ -11,7 +11,12 @@ on:
 
 jobs:
   deploy:
+    environment:
+      name: production        # ← GitHub Environment added
+      url: ${{ steps.deployment.outputs.page_url }}  # optional: shows URL in UI
+
     runs-on: ubuntu-latest
+
     permissions:
       contents: read
       pages: write
@@ -28,20 +33,4 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install mkdocs mkdocs-material pymdown-extensions
 
-      - name: Build documentation
-        run: mkdocs build
-
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v4
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: site
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
